@@ -20,6 +20,8 @@ public class SearchController {
     @RequestMapping(value = "")
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
+        String checkedValue = "all";
+        model.addAttribute("checkedValue", checkedValue);
         return "search";
     }
 
@@ -37,7 +39,8 @@ public class SearchController {
             results = JobData.findByColumnAndValue(searchType, searchTerm);
             model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
         }
-
+        String checkedValue = searchType + "";
+        model.addAttribute("checkedValue", checkedValue);
         model.addAttribute("results", results);
         model.addAttribute("columns", columnChoices);
         return "search";
