@@ -55,17 +55,17 @@
                         <td>Employer</td>
                         <td>
 <!--                            <a th:href="${job.employer.value}" th:text="${job.employer.value}"></a>-->
-                            <a th:href="@{'/search/(col=employer,val='+ ${job.employer.value} + ')'}" th:text="${job.employer.value}"></a>
+                            <a th:href="@{/search/results(searchType=employer,searchTerm=${job.employer.value})}" th:text="${job.employer.value}"></a>
                         </td>
                     </tr>
                     <tr>
-                        <td>Location</td><td th:text="${job.location.value}"></td>
+                        <td><a th:href="@{/search/results(searchType=location,searchTerm=${job.location.value})}" th:text="${job.location.value}"></td>
                     </tr>
                     <tr>
-                        <td>Position Type</td><td th:text="${job.positionType.value}"></td>
+                        <td><a th:href="@{/search/results(searchType=positionType,searchTerm=${job.positionType.value})}" th:text="${job.positionType.value}"></td>
                     </tr>
                     <tr>
-                        <td>Core Competency</td><td th:text="${job.coreCompetency.value}"></td>
+                        <td><a th:href="@{/search/results(searchType=coreCompetency,searchTerm=${job.coreCompetency.value})}" th:text="${job.coreCompetency.value}"></td>
                     </tr>
                 </table>
             </tr>

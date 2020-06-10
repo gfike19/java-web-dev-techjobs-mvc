@@ -46,13 +46,4 @@ public class SearchController {
         return "search";
     }
 
-    @RequestMapping(value="/{col},{val}")
-    public String linkedResults(@PathVariable String col, @PathVariable String val, Model model) {
-        ArrayList<Job> results = JobData.findByColumnAndValue(col, val);
-        String checkedValue = col + "";
-        model.addAttribute("checkedValue", checkedValue);
-        model.addAttribute("results", results);
-        model.addAttribute("columns", columnChoices);
-        return "search";
-    }
 }
